@@ -4,7 +4,7 @@ interface Props {
   number: number;
   title: string;
   description: string;
-  additionalInfo?: string;
+  additionalInfo?: string | null;
 };
 
 const ProcessStep: React.FC<Props> = ({ number, title, description, additionalInfo }) => (

@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
+import { MaxWidthContainer } from 'styles/layout';
 import { NavList, NavItem, NavLink } from 'styles/navigation';
 
-const Header: React.FC = () => (
-  <HeaderWrapper>
+const NavMenu: React.FC = () => (
+  <MaxWidthContainer>
     <NavList>
       <NavItem><NavLink href="#">About Us</NavLink></NavItem>
       <NavItem><NavLink href="#">Curriculum</NavLink></NavItem>
@@ -15,10 +15,7 @@ const Header: React.FC = () => (
       <NavItem><NavLink href="#">Fees</NavLink></NavItem>
       <NavItem><NavLink href="#">Blog</NavLink></NavItem>
     </NavList>
-  </HeaderWrapper>
+  </MaxWidthContainer>
 );
 
-const HeaderWrapper = styled.div`
-`;
-
-export default Header;
+export default NavMenu;
