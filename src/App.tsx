@@ -1,26 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import Footer from './components/Footer';
+import Header from 'components/page/Header';
+import Footer from 'components/page/Footer';
+import Button from 'components/shared/Button';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <header>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Wrapper>
+      <Header />
+      <Button text="Apply" isPrimary />
+      <Button text="Curriculum" />
       <Footer />
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  background: #ccc;
+`;
 
 export default App;
