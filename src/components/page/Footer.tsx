@@ -2,22 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { MaxWidthContainer } from 'styles/layout';
-import { NavList, NavItem, NavLink } from 'styles/navigation';
+import { NavList, NavItem } from 'styles/navigation';
 
 const Footer: React.FC = () => (
   <MaxWidthContainer>
     <FooterWrapper>
       <NavList>
-        <NavItem><NavLink href="#">Curriculum</NavLink></NavItem>
-        <NavItem><NavLink href="#">About Us</NavLink></NavItem>
-        <NavItem><NavLink href="#">Contact Us</NavLink></NavItem>
+        <NavItem><a href="#">Curriculum</a></NavItem>
+        <NavItem><a href="#">About Us</a></NavItem>
+        <NavItem><a href="#">Contact Us</a></NavItem>
       </NavList>
     </FooterWrapper>
   </MaxWidthContainer>
 );
 
 const FooterWrapper = styled.div`
-  border-top: 1px solid #000;
+  border-top: 1px solid #7b8590;
   padding: 10px;
 `;
 

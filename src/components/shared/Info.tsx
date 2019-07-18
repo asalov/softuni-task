@@ -17,7 +17,7 @@ const Info: React.FC<Props> = ({ title, children }) => {
 };
 
 const Title = styled.h2`
-  color: #bbb;
+  font-size: 2.6rem;
   text-transform: capitalize;
 `;
 

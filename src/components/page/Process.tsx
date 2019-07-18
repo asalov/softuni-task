@@ -22,6 +22,8 @@ const Process: React.FC<Props> = ({ steps }) => {
 };
 
 const Background = styled.div`
-  background: lightgray;
+  background: linear-gradient(rgba(62, 76, 93, 0.7), rgba(62, 76, 93, 0.7)), url('img/curriculum-steps-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 export default Process;

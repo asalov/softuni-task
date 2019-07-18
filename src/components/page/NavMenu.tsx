@@ -1,19 +1,19 @@
 import React from 'react';
 
 import { MaxWidthContainer } from 'styles/layout';
-import { NavList, NavItem, NavLink } from 'styles/navigation';
+import { NavList, NavItem } from 'styles/navigation';
 
 const NavMenu: React.FC = () => (
   <MaxWidthContainer>
     <NavList>
-      <NavItem><NavLink href="#">About Us</NavLink></NavItem>
-      <NavItem><NavLink href="#">Curriculum</NavLink></NavItem>
-      <NavItem><NavLink href="#">Trainings</NavLink></NavItem>
-      <NavItem><NavLink href="#">Professions</NavLink></NavItem>
-      <NavItem><NavLink href="#">Certificates</NavLink></NavItem>
-      <NavItem><NavLink href="#">Careers</NavLink></NavItem>
-      <NavItem><NavLink href="#">Fees</NavLink></NavItem>
-      <NavItem><NavLink href="#">Blog</NavLink></NavItem>
+      <NavItem><a href="#">About Us</a></NavItem>
+      <NavItem><a href="#">Curriculum</a></NavItem>
+      <NavItem><a href="#">Trainings</a></NavItem>
+      <NavItem><a href="#">Professions</a></NavItem>
+      <NavItem><a href="#">Certificates</a></NavItem>
+      <NavItem><a href="#">Careers</a></NavItem>
+      <NavItem><a href="#">Fees</a></NavItem>
+      <NavItem><a href="#">Blog</a></NavItem>
     </NavList>
   </MaxWidthContainer>
 );
