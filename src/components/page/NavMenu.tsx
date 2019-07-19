@@ -1,10 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { MaxWidthContainer } from 'styles/layout';
 import { NavList, NavItem } from 'styles/navigation';
+import { colors } from 'styles/palette';
 
 const NavMenu: React.FC = () => (
-  <MaxWidthContainer>
+  <NavContainer>
     <NavList>
       <NavItem><a href="#">About Us</a></NavItem>
       <NavItem><a href="#">Curriculum</a></NavItem>
@@ -15,7 +17,17 @@ const NavMenu: React.FC = () => (
       <NavItem><a href="#">Fees</a></NavItem>
       <NavItem><a href="#">Blog</a></NavItem>
     </NavList>
-  </MaxWidthContainer>
+  </NavContainer>
 );
+
+const NavContainer = styled(MaxWidthContainer)`
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: ${colors.white};
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+`;
 
 export default NavMenu;
