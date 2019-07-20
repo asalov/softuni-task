@@ -22,4 +22,8 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  a, a:visited {
+    color: inherit;
+  }
 `;

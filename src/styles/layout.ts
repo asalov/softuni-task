@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 
+import { defaultFont } from './content';
 import { colors } from './palette';
 import variables from './variables';
 
@@ -8,8 +9,21 @@ export const MaxWidthContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Grid = styled.div`
-  display: grid;
+export const Flex = styled.div`
+  display: flex;
+`;
+
+export const NavList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline;
+  }
+
+  a {
+    ${defaultFont}
+  }
 `;
 
 export const Panel = styled.div`

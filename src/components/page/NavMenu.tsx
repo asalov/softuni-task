@@ -2,23 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { borderRadius } from 'polished';
 
-import { MaxWidthContainer } from 'styles/layout';
-import { NavList, NavItem } from 'styles/navigation';
+import Logo from 'components/shared/Logo';
+import { MaxWidthContainer, NavList } from 'styles/layout';
 import { colors } from 'styles/palette';
 import variables from 'styles/variables';
 
 const NavMenu: React.FC = () => (
   <NavContainer>
-    <NavList>
-      <NavItem><a href="/">About Us</a></NavItem>
-      <NavItem><a href="/">Curriculum</a></NavItem>
-      <NavItem><a href="/">Trainings</a></NavItem>
-      <NavItem><a href="/">Professions</a></NavItem>
-      <NavItem><a href="/">Certificates</a></NavItem>
-      <NavItem><a href="/">Careers</a></NavItem>
-      <NavItem><a href="/">Fees</a></NavItem>
-      <NavItem><a href="/">Blog</a></NavItem>
-    </NavList>
+    <Logo />
+    <HeaderNav>
+      <li><a href="/">About Us</a></li>
+      <li><a href="/">Curriculum</a></li>
+      <li><a href="/">Trainings</a></li>
+      <li><a href="/">Professions</a></li>
+      <li><a href="/">Certificates</a></li>
+      <li><a href="/">Careers</a></li>
+      <li><a href="/">Fees</a></li>
+      <li><a href="/">Blog</a></li>
+    </HeaderNav>
   </NavContainer>
 );
 
@@ -30,7 +31,11 @@ const NavContainer = styled(MaxWidthContainer)`
   background: ${colors.white};
   padding: 20px;
   box-shadow: ${variables.boxShadow};
-  ${borderRadius('bottom', variables.borderRadius)};
+  /* ${borderRadius('bottom', variables.borderRadius)}; */
+`;
+
+const HeaderNav = styled(NavList)`
+  display: none;
 `;
 
 export default NavMenu;

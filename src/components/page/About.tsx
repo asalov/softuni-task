@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Info from 'components/shared/Info';
-import { MaxWidthContainer, Grid, Panel, flexCenter } from 'styles/layout';
+import { MaxWidthContainer, Flex, Panel, flexCenter } from 'styles/layout';
 import { Paragraph } from 'styles/content';
 import { colors } from 'styles/palette';
 
 const About: React.FC = () => (
   <AboutWrapper>
-    <AboutGrid>
+    <AboutFlex>
       <Info title="About SoftUni">
         <Paragraph>
           SoftUni (Software University) is a worldwide respected and award winning educational IT
@@ -27,14 +27,16 @@ const About: React.FC = () => (
           97% successfully hired graduates in the software industry.
           </Paragraph>
       </Info>
-      <Stat>
-        <StatCircle>
-          <StatCircleHeading>97 %</StatCircleHeading>
-          <StatCircleText>Success rate</StatCircleText>
-        </StatCircle>
-        <StatTitle>97% of our graduates start a career in IT</StatTitle>
-      </Stat>
-    </AboutGrid>
+      <StatOuter>
+        <StatInner>
+          <StatCircle>
+            <StatCircleHeading>97 %</StatCircleHeading>
+            <StatCircleText>Success rate</StatCircleText>
+          </StatCircle>
+          <StatTitle>97% of our graduates start a career in IT</StatTitle>
+        </StatInner>
+      </StatOuter>
+    </AboutFlex>
   </AboutWrapper>
 );
 
@@ -42,15 +44,20 @@ const AboutWrapper = styled(MaxWidthContainer)`
   padding: 40px 20px;
 `;
 
-const AboutGrid = styled(Grid)`
-  grid-template-columns: 2fr 1fr;
+const AboutFlex = styled(Flex)`
+  flex-direction: column;
 `;
 
-const Stat = styled(Panel)`
+const StatOuter = styled(Panel)`
   background: url('img/stats-card-background.jpg') no-repeat;
   background-size: cover;
   ${flexCenter}
+  padding: 30px 10px;
+`;
+
+const StatInner = styled(Flex)`
   flex-direction: column;
+  align-items: center;
 `;
 
 const StatCircle = styled.div`

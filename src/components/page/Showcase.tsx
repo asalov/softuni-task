@@ -8,7 +8,7 @@ import CallToAction from 'components/shared/CallToAction';
 import OverlayPanel from 'components/shared/OverlayPanel';
 import Stat from 'components/shared/Stat';
 
-import { MaxWidthContainer, Grid, Panel, flexCenter } from 'styles/layout';
+import { MaxWidthContainer, Flex, Panel, flexCenter } from 'styles/layout';
 import { colors } from 'styles/palette';
 import variables from 'styles/variables';
 
@@ -21,7 +21,7 @@ const Showcase: React.FC = () => {
     <ShowcaseContainer>
       <ContentWrapper>
         <NavMenu />
-        <ShowcaseGrid>
+        <ShowcaseFlex>
           <CallToActionWrapper>
             <CallToAction
               title="Become a Software Developer Learn to code and start your career"
@@ -36,10 +36,10 @@ const Showcase: React.FC = () => {
             </VideoThumbnail>
             <VideoTitle>Learn about programming</VideoTitle>
           </VideoWrapper>
-        </ShowcaseGrid>
-        <OverlayPanel>
+        </ShowcaseFlex>
+        <StatsPanel>
           {renderStats()}
-        </OverlayPanel>
+        </StatsPanel>
       </ContentWrapper>
     </ShowcaseContainer>
   );
@@ -55,10 +55,8 @@ const ContentWrapper = styled(MaxWidthContainer)`
   position: relative;
 `;
 
-const ShowcaseGrid = styled(Grid)`
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  justify-items: center;
-  align-items: center;
+const ShowcaseFlex = styled(Flex)`
+  flex-direction: column;
   padding: 50px 0 80px;
 `;
 
@@ -104,6 +102,10 @@ const VideoTitle = styled.div`
   padding: 17px 10px;
   font-size: 1.4rem;
   font-weight: bold;
+`;
+
+const StatsPanel = styled(OverlayPanel)`
+
 `;
 
 export default Showcase;

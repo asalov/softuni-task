@@ -8,7 +8,7 @@ import { MaxWidthContainer } from 'styles/layout';
 
 const Learning: React.FC = () => (
   <LearningWrapper>
-    <Info title="Live and interactive learning">
+    <Info title="Live and Interactive Learning">
       <Paragraph>
         SoftUni (Software University) is based on the idea of an innovative and modern educational
         center that creates real professionals in the programming world. The programming courses, the

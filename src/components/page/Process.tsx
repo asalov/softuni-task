@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import ProcessStep from 'components/shared/ProcessStep';
-import { MaxWidthContainer, Grid } from 'styles/layout';
+import { MaxWidthContainer, Flex } from 'styles/layout';
 
 interface Props {
   steps: any[];
@@ -15,9 +15,9 @@ const Process: React.FC<Props> = ({ steps }) => {
   return (
     <Background>
       <MaxWidthContainer>
-        <ProcessGrid>
+        <ProcessFlex>
           {renderSteps()}
-        </ProcessGrid>
+        </ProcessFlex>
       </MaxWidthContainer>
     </Background>
   );
@@ -29,11 +29,8 @@ const Background = styled.div`
   padding: 40px 0;
 `;
 
-const ProcessGrid = styled(Grid)`
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-column-gap: 20px;
-  grid-auto-rows: minmax(80px, auto);
-  align-items: end;
+const ProcessFlex = styled(Flex)`
+  flex-direction: column;
 `;
 
 export default Process;
