@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { darken, borderRadius } from 'polished';
 
 import { colors } from 'styles/palette';
+import variables from 'styles/variables';
 
 interface Props {
   number: number;
@@ -20,10 +21,14 @@ const ProcessStep: React.FC<Props> = ({ number, title, color, description, addit
   </StepContainer>
 );
 
+const stepNumSize = 30;
+
 const StepContainer = styled.div<{ number: number }>`
   position: relative;
   text-align: center;
   margin: 10px 0;
+  display: flex;
+  flex-direction: column;
 
   &:before {
     content: ${p => `"${p.number}"`};
@@ -31,11 +36,14 @@ const StepContainer = styled.div<{ number: number }>`
     background: ${colors.primary};
     border-radius: 50%;
     position: absolute;
-    top: -20px;
-    left: calc(50% - 20px);
-    width: 20px;
-    height: 20px;
-    padding: 10px;
+    font-size: 1.2rem;
+    ${`
+      top: -${stepNumSize / 2}px;
+      left: calc(50% - ${stepNumSize / 2}px);
+      width: ${stepNumSize}px;
+      height: ${stepNumSize}px;
+      line-height: ${stepNumSize}px;
+    `}
   }
 `;
 
@@ -50,14 +58,14 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p<{ bgColor: string, hasAdditionalInfo?: boolean }>`
-  ${p => !p.hasAdditionalInfo && `
-    border-bottom-left-radius:5px;
-    border-bottom-right-radius:5px;
-  `}
+  ${p => !p.hasAdditionalInfo && borderRadius('bottom', variables.borderRadius)}
   margin: 0;
   color: ${colors.white};
   background: ${p => p.bgColor};
   padding: 10px 0;
+  flex: 1;
+  font-size: 1.6rem;
+  line-height: 1.5;
 `;
 
 const AdditionalInfo = styled(Description)`

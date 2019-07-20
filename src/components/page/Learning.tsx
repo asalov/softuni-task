@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Info from 'components/shared/Info';
 import OverlayPanel from 'components/shared/OverlayPanel';
 import { Paragraph } from 'styles/content';
+import { MaxWidthContainer } from 'styles/layout';
 
 const Learning: React.FC = () => (
   <LearningWrapper>
@@ -44,8 +45,8 @@ const Learning: React.FC = () => (
   </LearningWrapper>
 );
 
-const LearningWrapper = styled.div`
-  padding: 40px 0;
+const LearningWrapper = styled(MaxWidthContainer)`
+  padding: 40px 20px;
   position: relative;
 `;
 

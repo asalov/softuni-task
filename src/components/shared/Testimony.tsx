@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from 'styles/palette';
+import { WhitePanel } from 'styles/layout';
 
 interface Props {
   opinion: string;
@@ -27,23 +27,24 @@ const TestimonyWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const Opinion = styled.div`
+const Opinion = styled(WhitePanel)`
   font-style: italic;
-  background: ${colors.white};
   padding: 50px 10px;
   position: relative;
-  border-radius: 5px;
   font-size: 1.2rem;
-  line-height: 2.8rem;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  line-height: 2.2;
 `;
+
+const avatarSize = 70;
 
 const Image = styled.img`
   border-radius: 50%;
-  max-width: 70px;
   position: absolute;
-  bottom: -35px;
-  left: calc(50% - 35px);
+  ${`
+    max-width: ${avatarSize}px;
+    bottom: -${avatarSize / 2}px;
+    left: calc(50% - ${avatarSize /2}px);
+  `}
 `;
 
 const Name = styled.div`

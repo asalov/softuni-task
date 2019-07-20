@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CallToAction from 'components/shared/CallToAction';
+import { MaxWidthContainer, Panel } from 'styles/layout';
 
 const Awards: React.FC = () => (
-  <>
+  <MaxWidthContainer>
     <h2>Award Winning Educational Institution</h2>
     <CallToActionContainer>
       <CallToAction
@@ -12,10 +13,10 @@ const Awards: React.FC = () => (
         subtitle="Start with a free Programming Basics training, begin your career in the IT sector and graduate as a full stack developer!"
       />
     </CallToActionContainer>
-  </>
+  </MaxWidthContainer>
 );
 
-const CallToActionContainer = styled.div`
+const CallToActionContainer = styled(Panel)`
   background: linear-gradient(rgba(62, 76, 93, 0.6), rgba(62, 76, 93, 0.6)), url('img/apply-prompt-background-desktop.jpg') no-repeat;
   background-size: cover;
 `;

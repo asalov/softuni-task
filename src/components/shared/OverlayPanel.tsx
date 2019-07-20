@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from 'styles/palette';
-import variables from 'styles/variables';
+import { WhitePanel } from 'styles/layout';
 
 const OverlayPanel: React.FC = ({ children }) => (
   <PanelContainer>
@@ -10,13 +9,11 @@ const OverlayPanel: React.FC = ({ children }) => (
   </PanelContainer>
 );
 
-const PanelContainer = styled.div`
+const PanelContainer = styled(WhitePanel)`
   position: absolute;
   height: 80px;
   bottom: -40px;
-  background: ${colors.white};
-  border-radius: ${variables.borderRadius};
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
 `;
 
 export default OverlayPanel;

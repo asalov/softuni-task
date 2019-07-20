@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from 'styles/palette';
+import variables from 'styles/variables';
 
 interface Props {
   text: string;
@@ -13,7 +14,7 @@ const Button: React.FC<Props> = ({ text, isPrimary }) => (
 );
 
 const StyledButton = styled.button<{ isPrimary?: boolean }>`
-  border-radius: 5px;
+  border-radius: ${variables.borderRadius};
   text-transform: uppercase;
   padding: 10px 20px;
   border: 1px solid ${colors.white};
