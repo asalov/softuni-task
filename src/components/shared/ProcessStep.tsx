@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 import { darken, borderRadius } from 'polished';
 
+import { IStep } from 'models';
+import { Flex } from 'styles/layout';
 import { colors } from 'styles/palette';
 import variables from 'styles/variables';
 
-interface Props {
-  number: number;
-  title: string;
-  color: string;
-  description: string;
-  additionalInfo?: string | null;
-};
-
-const ProcessStep: React.FC<Props> = ({ number, title, color, description, additionalInfo }) => (
+const ProcessStep: React.FC<IStep> = ({ number, title, color, description, additionalInfo }) => (
   <StepContainer number={number}>
     <Title>{title}</Title>
     <Description bgColor={color} hasAdditionalInfo={!!additionalInfo}>{description}</Description>
@@ -23,12 +18,16 @@ const ProcessStep: React.FC<Props> = ({ number, title, color, description, addit
 
 const stepNumSize = 30;
 
-const StepContainer = styled.div<{ number: number }>`
+const StepContainer = styled(Flex)<{ number: number }>`
   position: relative;
   text-align: center;
-  margin: 10px 0;
-  display: flex;
+  margin: 25px 0;
   flex-direction: column;
+  padding: 0 10px;
+
+  ${up('tablet')} {
+    max-width: 180px;
+  }
 
   &:before {
     content: ${p => `"${p.number}"`};
@@ -37,6 +36,7 @@ const StepContainer = styled.div<{ number: number }>`
     border-radius: 50%;
     position: absolute;
     font-size: 1.2rem;
+    font-weight: bold;
     ${`
       top: -${stepNumSize / 2}px;
       left: calc(50% - ${stepNumSize / 2}px);
@@ -44,6 +44,10 @@ const StepContainer = styled.div<{ number: number }>`
       height: ${stepNumSize}px;
       line-height: ${stepNumSize}px;
     `}
+
+    ${up('tablet')} {
+      top: -40px;
+    }
   }
 `;
 
@@ -54,7 +58,8 @@ const Title = styled.h3`
   margin: 0;
   text-transform: uppercase;
   background: ${colors.white};
-  padding: 20px 0;
+  padding: 20px 10px;
+  min-height: 70px;
 `;
 
 const Description = styled.p<{ bgColor: string, hasAdditionalInfo?: boolean }>`
@@ -62,10 +67,11 @@ const Description = styled.p<{ bgColor: string, hasAdditionalInfo?: boolean }>`
   margin: 0;
   color: ${colors.white};
   background: ${p => p.bgColor};
-  padding: 10px 0;
+  padding: 10px;
   flex: 1;
   font-size: 1.6rem;
   line-height: 1.5;
+  white-space: pre-line;
 `;
 
 const AdditionalInfo = styled(Description)`

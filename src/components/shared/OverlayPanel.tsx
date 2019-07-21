@@ -13,7 +13,8 @@ const PanelContainer = styled(WhitePanel)`
   position: absolute;
   height: 80px;
   bottom: -40px;
-  width: 100%;
+  left: 15px;
+  right: 15px;
 `;
 
 export default OverlayPanel;

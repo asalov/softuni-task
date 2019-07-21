@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 
 import stats from 'data/stats';
 
@@ -14,17 +15,17 @@ import variables from 'styles/variables';
 
 const Showcase: React.FC = () => {
   const renderStats = (): React.ReactElement[] => {
-    return stats.map((stat) => <Stat {...stat} />);
+    return stats.map((stat) => <Stat key={stat.icon} {...stat} />);
   };
 
   return (
     <ShowcaseContainer>
-      <ContentWrapper>
+      <MaxWidthContainer>
         <NavMenu />
         <ShowcaseFlex>
           <CallToActionWrapper>
             <CallToAction
-              title="Become a Software Developer Learn to code and start your career"
+              title={`Become a Software Developer\n Learn to code and start your career`}
               subtitle="Enroll in our end-to-end program. Start now with a free course"
             />
           </CallToActionWrapper>
@@ -36,11 +37,13 @@ const Showcase: React.FC = () => {
             </VideoThumbnail>
             <VideoTitle>Learn about programming</VideoTitle>
           </VideoWrapper>
+            <OverlayPanel>
+              <StatWrapper>
+                {renderStats()}
+              </StatWrapper>
+            </OverlayPanel>
         </ShowcaseFlex>
-        <StatsPanel>
-          {renderStats()}
-        </StatsPanel>
-      </ContentWrapper>
+      </MaxWidthContainer>
     </ShowcaseContainer>
   );
 };
@@ -48,25 +51,33 @@ const Showcase: React.FC = () => {
 const ShowcaseContainer = styled.div`
   background: url('img/home-page-hero.jpg') no-repeat;
   background-size: cover;
-  padding-top: 70px;
-`;
-
-const ContentWrapper = styled(MaxWidthContainer)`
-  position: relative;
 `;
 
 const ShowcaseFlex = styled(Flex)`
+  position: relative;
   flex-direction: column;
-  padding: 50px 0 80px;
+  align-items: center;
+  padding: 80px 15px 100px;
+
+  ${up('tablet')} {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 140px 30px 100px;
+  }
 `;
 
 const CallToActionWrapper = styled.div`
+  text-align: center;
+
+  ${up('tablet')} {
+    text-align: left;
+  }
 `;
 
 const VideoWrapper = styled(Panel)`
   overflow: hidden;
   width: 480px;
-  height: 320px;
+  max-width: 100%;
 `;
 
 const VideoThumbnail = styled.div`
@@ -104,8 +115,14 @@ const VideoTitle = styled.div`
   font-weight: bold;
 `;
 
-const StatsPanel = styled(OverlayPanel)`
+const StatWrapper = styled.div`
+  padding: 0 30px;
+  height: 100%;
+  ${flexCenter};
 
+  ${up('tablet')} {
+    justify-content: space-between;
+  }
 `;
 
 export default Showcase;

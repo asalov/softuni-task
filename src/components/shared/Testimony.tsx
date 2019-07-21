@@ -1,38 +1,54 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { WhitePanel } from 'styles/layout';
+import { ITestimony } from 'models';
+import { WhitePanel, flexCenter } from 'styles/layout';
+import { defaultFont } from 'styles/content';
 
-interface Props {
-  opinion: string;
-  name: string;
-  photo: string;
-  job: string;
+interface Props extends ITestimony {
+  isActive: boolean;
+  changeStatus: (id: number, target: any) => void;
 };
 
-const Testimony: React.FC<Props> = ({ opinion, name, photo, job }) => (
-  <TestimonyWrapper>
-    <Opinion>
-      {opinion}
-      <Image src={photo} alt={name} />
-    </Opinion>
-    <Name>{name}</Name>
-    <div>{job}</div>
-  </TestimonyWrapper>
-);
+const Testimony: React.FC<Props> = ({ id, opinion, name, photo, job, isActive, changeStatus }) => {
 
-const TestimonyWrapper = styled.div`
+  const onClick = (e: React.MouseEvent) => changeStatus(id, e.currentTarget);
+
+  return (
+    <TestimonyWrapper isActive={isActive}>
+      <Opinion isActive={isActive} onClick={onClick}>
+        {opinion}
+        {isActive && <Image src={photo} alt={name} />}
+      </Opinion>
+      {isActive &&
+        <>
+          <Name>{name}</Name>
+          <Job>{job}</Job>
+        </>
+      }
+    </TestimonyWrapper>
+  );
+};
+
+const TestimonyWrapper = styled.div<{ isActive?: boolean }>`
+  display: inline-block;
   text-align: center;
   max-width: 360px;
-  margin: 0 auto;
+  margin: 0 20px;
+  white-space: normal;
+  vertical-align: middle;
+  opacity: ${p => p.isActive ? 1 : 0.6 };
 `;
 
-const Opinion = styled(WhitePanel)`
+const Opinion = styled(WhitePanel)<{ isActive?: boolean}>`
   font-style: italic;
   padding: 50px 10px;
   position: relative;
-  font-size: 1.2rem;
+  font-size: ${p => p.isActive ? '1.4rem' : '1.2rem'};
   line-height: 2.2;
+  min-height: 200px;
+  cursor: pointer;
+  ${flexCenter}
 `;
 
 const avatarSize = 70;
@@ -48,8 +64,13 @@ const Image = styled.img`
 `;
 
 const Name = styled.div`
+  ${defaultFont}
   font-weight: bold;
   margin-top: 40px;
+`;
+
+const Job = styled.div`
+  ${defaultFont}
 `;
 
 export default Testimony;

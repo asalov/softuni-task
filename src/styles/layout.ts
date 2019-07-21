@@ -5,7 +5,7 @@ import { colors } from './palette';
 import variables from './variables';
 
 export const MaxWidthContainer = styled.div`
-  max-width: 980px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 

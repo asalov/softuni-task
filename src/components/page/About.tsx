@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 
 import Info from 'components/shared/Info';
 import { MaxWidthContainer, Flex, Panel, flexCenter } from 'styles/layout';
@@ -9,6 +10,7 @@ import { colors } from 'styles/palette';
 const About: React.FC = () => (
   <AboutWrapper>
     <AboutFlex>
+      <InfoWrapper>
       <Info title="About SoftUni">
         <Paragraph>
           SoftUni (Software University) is a worldwide respected and award winning educational IT
@@ -27,6 +29,7 @@ const About: React.FC = () => (
           97% successfully hired graduates in the software industry.
           </Paragraph>
       </Info>
+      </InfoWrapper>
       <StatOuter>
         <StatInner>
           <StatCircle>
@@ -41,11 +44,27 @@ const About: React.FC = () => (
 );
 
 const AboutWrapper = styled(MaxWidthContainer)`
-  padding: 40px 20px;
+  padding: 60px 20px;
+
+  ${up('tablet')} {
+    padding: 80px 30px;
+  }
 `;
 
 const AboutFlex = styled(Flex)`
   flex-direction: column;
+
+  ${up('tablet')} {
+    flex-direction: row;
+  }
+`;
+
+const InfoWrapper = styled.div`
+  flex: 2;
+
+  ${up('tablet')} {
+    margin-right: 20px;
+  }
 `;
 
 const StatOuter = styled(Panel)`
@@ -53,6 +72,8 @@ const StatOuter = styled(Panel)`
   background-size: cover;
   ${flexCenter}
   padding: 30px 10px;
+  flex: 1;
+  margin: 20px 0;
 `;
 
 const StatInner = styled(Flex)`
@@ -61,8 +82,8 @@ const StatInner = styled(Flex)`
 `;
 
 const StatCircle = styled.div`
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background: ${colors.white};
   ${flexCenter}

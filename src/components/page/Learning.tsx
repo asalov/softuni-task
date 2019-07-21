@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 
 import Info from 'components/shared/Info';
 import OverlayPanel from 'components/shared/OverlayPanel';
 import { Paragraph } from 'styles/content';
-import { MaxWidthContainer } from 'styles/layout';
+import { MaxWidthContainer, Flex } from 'styles/layout';
 
 const Learning: React.FC = () => (
   <LearningWrapper>
@@ -40,14 +41,34 @@ const Learning: React.FC = () => (
         </Paragraph>
     </Info>
     <OverlayPanel>
-      Test test test
+      <CompaniesWrapper>
+        <CompaniesTitle>Start your career in:</CompaniesTitle>
+      </CompaniesWrapper>
     </OverlayPanel>
   </LearningWrapper>
 );
 
 const LearningWrapper = styled(MaxWidthContainer)`
-  padding: 40px 20px;
+  padding: 30px 20px 80px;
   position: relative;
+`;
+
+const CompaniesWrapper = styled(Flex)`
+  height: 100%;
+  padding: 15px;
+  flex-direction: column;
+
+  ${up('tablet')} {
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+const CompaniesTitle = styled.h3`
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: normal;
+  margin: 0;
 `;
 
 export default Learning;

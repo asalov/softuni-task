@@ -30,6 +30,7 @@ const App: React.FC = () => {
 
 const Wrapper = styled.div`
   background: ${colors.white};
+  overflow-x: hidden;
 `;
 
 export default App;
