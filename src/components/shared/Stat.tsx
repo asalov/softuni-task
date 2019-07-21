@@ -23,6 +23,7 @@ const Stat: React.FC<Props> = ({ icon, title, subtitle }) => (
 
 const StatWrapper = styled(Flex)`
   color: ${colors.primary};
+  padding: 10px 0;
 `;
 
 const Icon = styled.i`

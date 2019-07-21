@@ -23,6 +23,7 @@ const StepContainer = styled(Flex)<{ number: number }>`
   text-align: center;
   margin: 25px 0;
   flex-direction: column;
+  flex: 1;
   padding: 0 10px;
 
   ${up('tablet')} {

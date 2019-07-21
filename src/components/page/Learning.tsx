@@ -54,7 +54,7 @@ const LearningWrapper = styled(MaxWidthContainer)`
 `;
 
 const CompaniesWrapper = styled(Flex)`
-  height: 100%;
+  height: 80px;
   padding: 15px;
   flex-direction: column;
 

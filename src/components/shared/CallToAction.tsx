@@ -24,7 +24,7 @@ const CallToAction: React.FC<Props> = ({ title, subtitle }) => (
 
 const Container = styled.div`
   color: ${colors.white};
-  padding: 30px 0;
+  padding: 30px 10px;
 `;
 
 const CallToActionTitle = styled(Title)`
@@ -33,7 +33,7 @@ const CallToActionTitle = styled(Title)`
 `;
 
 const Separator = styled.span`
-  margin: 0 25px;
+  margin: 0 20px;
   font-size: 2rem;
   line-height: 1.8;
 `;

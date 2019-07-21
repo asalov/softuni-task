@@ -8,6 +8,7 @@ import NavMenu from 'components/page/NavMenu';
 import CallToAction from 'components/shared/CallToAction';
 import OverlayPanel from 'components/shared/OverlayPanel';
 import Stat from 'components/shared/Stat';
+import SliderDots from 'components/shared/SliderDots';
 
 import { MaxWidthContainer, Flex, Panel, flexCenter } from 'styles/layout';
 import { colors } from 'styles/palette';
@@ -38,9 +39,14 @@ const Showcase: React.FC = () => {
             <VideoTitle>Learn about programming</VideoTitle>
           </VideoWrapper>
             <OverlayPanel>
-              <StatWrapper>
-                {renderStats()}
-              </StatWrapper>
+              <StatOuterWrapper>
+                <StatWrapper>
+                  {renderStats()}
+                </StatWrapper>
+                <DotsWrapper>
+                  <SliderDots active={1} total={stats.length} />
+                 </DotsWrapper>
+              </StatOuterWrapper>
             </OverlayPanel>
         </ShowcaseFlex>
       </MaxWidthContainer>
@@ -115,13 +121,37 @@ const VideoTitle = styled.div`
   font-weight: bold;
 `;
 
+const StatOuterWrapper = styled.div`
+  height: 100%;
+  padding: 10px 10px 20px;
+  position: relative;
+
+  ${up('tablet')} {
+    padding: 10px;
+  }
+`;
+
 const StatWrapper = styled.div`
   padding: 0 30px;
   height: 100%;
   ${flexCenter};
 
+  > div:not(:first-of-type) {
+    display: none;
+  }
+
   ${up('tablet')} {
     justify-content: space-between;
+
+    > div:not(:first-of-type) {
+      display: flex;
+    }
+  }
+`;
+
+const DotsWrapper = styled.div`
+  ${up('tablet')} {
+    display: none;
   }
 `;
 

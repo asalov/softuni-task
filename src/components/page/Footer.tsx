@@ -30,6 +30,7 @@ const FooterWrapper = styled(Flex)`
   ${up('tablet')} {
     flex-direction: row;
     justify-content: space-between;
+    padding: 15px 10px;
   }
 `;
 

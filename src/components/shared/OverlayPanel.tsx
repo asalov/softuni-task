@@ -11,10 +11,11 @@ const OverlayPanel: React.FC = ({ children }) => (
 
 const PanelContainer = styled(WhitePanel)`
   position: absolute;
-  height: 80px;
+  min-height: 80px;
   bottom: -40px;
   left: 15px;
   right: 15px;
+  z-index: 10;
 `;
 
 export default OverlayPanel;

@@ -1,25 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { up } from 'styled-breakpoints';
 
 import { ITestimony } from 'models';
 import Testimony from 'components/shared/Testimony';
+import SliderDots from 'components/shared/SliderDots';
 
 interface Props {
   testimonies: ITestimony[];
 };
 
 const Testimonies: React.FC<Props> = ({ testimonies }) => {
-  const myRef = useRef<HTMLDivElement>(null);
-  const [activeTestimony, setActiveTestimony] = useState(3);
+  const [activeTestimony, setActiveTestimony] = useState(1);
 
-  const changeActiveTestimony = (itemId: number, target: any): void => {
+  const changeActiveTestimony = (itemId: number): void => {
     setActiveTestimony(itemId);
-
-    const element = myRef.current;
-
-    if (element) {
-      element.scrollLeft = (target.offsetLeft / 2);
-    }
   }
 
   const renderTestimonies = (): React.ReactElement[] => {
@@ -34,13 +29,17 @@ const Testimonies: React.FC<Props> = ({ testimonies }) => {
   };
 
   return (
-    <Container ref={myRef}>
+    <Container>
       {renderTestimonies()}
+      <DotsWrapper>
+        <SliderDots active={activeTestimony} total={testimonies.length} />
+      </DotsWrapper>
     </Container>
   );
 };
 
 const Container = styled.div`
+  position: relative;
   background: #eee;
   white-space: nowrap;
   padding: 100px 0;
@@ -51,6 +50,12 @@ const Container = styled.div`
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const DotsWrapper = styled.div`
+  ${up('tablet')} {
     display: none;
   }
 `;

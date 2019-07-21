@@ -7,12 +7,12 @@ import { defaultFont } from 'styles/content';
 
 interface Props extends ITestimony {
   isActive: boolean;
-  changeStatus: (id: number, target: any) => void;
+  changeStatus: (id: number) => void;
 };
 
 const Testimony: React.FC<Props> = ({ id, opinion, name, photo, job, isActive, changeStatus }) => {
 
-  const onClick = (e: React.MouseEvent) => changeStatus(id, e.currentTarget);
+  const onClick = (e: React.MouseEvent) => changeStatus(id);
 
   return (
     <TestimonyWrapper isActive={isActive}>
